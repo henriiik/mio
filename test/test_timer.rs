@@ -246,7 +246,9 @@ fn elapsed<F: FnMut()>(mut f: F) -> u64 {
 }
 
 fn is_about(expect: u64, val: u64) -> bool {
-    ((expect as i64) - (val as i64)).abs() <= 20
+    const WINDOW: i64 = 200;
+
+    ((expect as i64) - (val as i64)).abs() <= WINDOW
 }
 
 /*
